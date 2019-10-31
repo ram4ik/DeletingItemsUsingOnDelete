@@ -17,12 +17,17 @@ struct ContentView: View {
                 ForEach(numbers, id: \.self) {
                     Text("\($0)")
                 }
+            .onDelete(perform: removeRows)
             }
             Button("Add Number") {
                 self.numbers.append(self.currentNumber)
                 self.currentNumber += 1
             }
         }
+    }
+    
+    func removeRows(at offsets: IndexSet) {
+        numbers.remove(atOffsets: offsets )
     }
 }
 
