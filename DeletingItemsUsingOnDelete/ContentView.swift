@@ -13,8 +13,10 @@ struct ContentView: View {
     @State private var currentNumber = 1
     var body: some View {
         VStack {
-            List(numbers, id: \.self) {
-                Text("\($0)")
+            List {
+                ForEach(numbers, id: \.self) {
+                    Text("\($0)")
+                }
             }
             Button("Add Number") {
                 self.numbers.append(self.currentNumber)
